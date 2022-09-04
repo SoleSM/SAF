@@ -8,7 +8,7 @@ import {
 
 import Home from '../views/home/Home';
 import Info from '../views/informacion/Info';
-import Login from '../views/Login/Login';
+import Login from '../views/login/Login';
 import Register from '../views/registro/Register';
 
 

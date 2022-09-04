@@ -1,8 +1,25 @@
 import React from 'react'
+import '../../styles/login.styles.css'
 
 export default function Register ()  {
   return (
-    <div> perfecto Register</div>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+
+          <h2 class="active"> Registro </h2>
+
+          <form>
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Nombre de usuario" />
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Constraseña" />
+            <input type="text" id="passwordConfirm" class="fadeIn third" name="login" placeholder="Confirme su contraseña" />
+            <input type="submit" class="fadeIn fourth" value="Registrarse" />
+          </form>
+
+
+    
+
+        </div>
+      </div>
   )
 }
 
