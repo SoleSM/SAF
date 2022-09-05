@@ -4,23 +4,21 @@ import imagen1 from '../../assets/imagen1.jpg'
 import imagen2 from '../../assets/imagen2.jpg'
 import imagen3 from '../../assets/imagen3.jpg'
 import CardImagen from '../../components/Cards/CardImagen'
+import { motion } from "framer-motion"
+
 
 export default function Info() {
 
-  const [clickBoton, setClickBoton] = useState(false)
-
-  const desplegarInformacion = () => {
-    setClickBoton(!clickBoton)
-
-    clickBoton ? <h1>HOLA HICISTE CLIKC</h1>: null
- 
-  } 
-  
-  
   return (
     <>
-      <div className="contenedorPrincipal">
-        <h1>SOBERANIA ALIMENTARIA FORMOSA</h1>
+
+      <div className='containerPagina'>
+        <div className="contenedorPrincipal">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+           >SOBERANIA ALIMENTARIA FORMOSA</motion.h1>
 
         <div className='contenedorPP'>
           <h3>¿Qué es?</h3>
@@ -40,25 +38,23 @@ export default function Info() {
           </p>
         </div>
 
-        <div className='contenedorCards'>
-          <CardImagen
-            imagen={imagen1} />
-          <CardImagen
-            imagen={imagen2} />
-          <CardImagen
-            imagen={imagen3} />
-          <CardImagen
-            imagen={imagen3} />
+        <div className="row">
+          <div className="col-sm-6">
+            <CardImagen
+              imagen={imagen1} />
+            <CardImagen
+              imagen={imagen2} />
+            <CardImagen
+              imagen={imagen1} />
+            <CardImagen
+              imagen={imagen2} />
 
-
+          </div>
         </div>
-
-        <div>
-          <button onClick={desplegarInformacion}>Soy productor, quiero unirme al programa</button>
-          
-        </div>
-
+        
       </div>
+    </div>
+
     </>
   )
 }

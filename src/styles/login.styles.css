@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 /* BASIC */
+.containerPrincipal{
+  font-weight: 100%;
+  height: 100vh;
+ 
+  background-size: 100%;
 
+}
 
 a {
   color: #92badd;
