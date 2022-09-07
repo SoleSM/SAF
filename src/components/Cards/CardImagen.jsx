@@ -6,9 +6,6 @@ const CardImagen = (props) => {
 
             <div className="card" >
                 <img className="card-img-top" src={props.imagen} alt="Card image cap" />
-                <div className="card-body">
-                    <p className="card-text">{props.descripcion}</p>
-                </div>
             </div>
         </>
     )
