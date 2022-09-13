@@ -10,6 +10,7 @@ import Home from '../views/home/Home';
 import Info from '../views/informacion/Info';
 import Login from '../views/login/Login';
 import Register from '../views/registro/Register';
+import Catalogo from '../views/catalogo/catalogo';
 
 
 export default function Rutas  ()  {
@@ -22,6 +23,7 @@ export default function Rutas  ()  {
           <Route exact path="/Registro" element={<Register/>}/>
           <Route exact path="/Iniciosesion" element={<Login/>}/>
           <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/Catalogo" element={<Catalogo/>}/>
         </Routes>
      
     </Router>

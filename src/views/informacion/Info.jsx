@@ -3,7 +3,7 @@ import imagen2 from '../../assets/imagen2.jpg'
 import imagen3 from '../../assets/imagen3.jpg'
 import CardImagen from '../../components/Cards/CardImagen'
 import styled from 'styled-components'
-import { SSRProvider } from 'react-bootstrap'
+
 
 const Container = styled.div`
 margin: 10px 10px 10px 10px;

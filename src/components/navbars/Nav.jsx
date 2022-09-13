@@ -15,9 +15,11 @@ export default function Nav() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+          <Link type="button" className="btn btn-outline-primary me-md-2" to="/Catalogo">Catalogo</Link>
             <Link type="button" className="btn btn-outline-primary me-md-2" to="/Informacion">Informacion</Link>
             <Link type="button" className="btn btn-outline-primary me-md-2" to="/Registro">Registro</Link>
             <Link type="button" className="btn btn-outline-primary me-md-2" to="/Iniciosesion">Inicio sesion</Link>
+          
           </div>
         </div>
       </nav>
