@@ -32,7 +32,7 @@ width: 100vh;
   }
 `;
 
-const Button = styled.div`
+export const Button = styled.div`
   display: flex;
   justify-content: center;
   padding: .5rem;
@@ -41,7 +41,7 @@ const Button = styled.div`
   height: 17vh;
 `;
 
-const Item = styled.div`
+export const Item = styled.div`
   display: flex;
   justify-content: center;
   padding: .5rem;
@@ -50,7 +50,7 @@ const Item = styled.div`
   height: 100px;
 `;
 
-const Grid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 50px 50px;
@@ -69,22 +69,8 @@ font-weight: bold;
 
 const Catalogo = () => {
 
-    const [eleccion, setEleccion] = useState([]);
-    const [search, setSearch] = useState("");
-
-    const showData = () => {
-        fetch("http://localhost:3000/carrito")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            });
-
-    }
-    showData();
-
-
-
-
+    const [eleccion, setEleccion] = useState("");
+    
     return (
         <Container>
             <Title>Encuentra los productos que buscas</Title>
@@ -118,10 +104,35 @@ const Catalogo = () => {
             </Container>
 
             <Input onChange={e => setEleccion(e.target.value)} placeholder='Buscar Productos'></Input>
-      
-      {
-        
-      }
+            <button
+            onClick={()=> console.log(eleccion)}>Guardar</button>
+
+            {
+                console.log(eleccion)
+            }
+            {
+                eleccion === "carnes" ?
+                    <Grid>
+                        <Item>Carne</Item>
+                        <Item>Carne</Item>
+                        <Item>Carne</Item>
+                        <Item>Carne</Item>
+                    </Grid> : console.log("no carnes")
+            }
+            {
+                       eleccion === "lacteos" ?
+                       <Grid>
+                           <Item>Lacteos</Item>
+                           <Item>Lacteos</Item>
+                           <Item>Lacteos</Item>
+                           <Item>Lacteos</Item>
+                           <Item>Lacteos</Item>
+                         
+                       </Grid> : console.log("no lacteos")
+            }
+
+
+
 
         </Container>
 
