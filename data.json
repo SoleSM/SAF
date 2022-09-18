@@ -3,7 +3,7 @@
     {
         "id": 1,
         "producto": "Banana",
-        "categoria": "Frutas",
+        "categoria": "Frutas/Verduras",
         "precio": 100
     },
     {
@@ -26,6 +26,24 @@
     },
     {
         "id": 5,
+        "producto": "Dulce de batata",
+        "categoria": "Dulces artesanales",
+        "precio": 100
+    },
+    {
+        "id": 6,
+        "producto": "Dulce de batata",
+        "categoria": "Dulces artesanales",
+        "precio": 100
+    },  
+    {
+        "id": 7,
+        "producto": "Dulce de batata",
+        "categoria": "Dulces artesanales",
+        "precio": 100
+    },
+    {
+        "id": 8,
         "producto": "Dulce de batata",
         "categoria": "Dulces artesanales",
         "precio": 100

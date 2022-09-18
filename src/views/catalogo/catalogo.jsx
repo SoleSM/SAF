@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { GiFruitBowl, GiMeat, GiMilkCarton, GiPaperBagOpen, GiWrappedSweet } from "react-icons/gi";
+import { useEffect } from 'react';
+
 
 
 const Container = styled.div`
@@ -48,6 +50,7 @@ const Item = styled.div`
   background-color: #9ADFFE;
   border-radius : 20px;
   height: 100px;
+  
 `;
 
 const Grid = styled.div`
@@ -56,6 +59,8 @@ const Grid = styled.div`
   grid-template-rows: 50px 50px;
   grid-gap: 15px;
   position:relative;
+  align-items:center
+
 `;
 
 const Span = styled.div`
@@ -77,12 +82,43 @@ const Catalogo = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
+                setEleccion(data)
             });
 
     }
-    showData();
+    
 
 
+//Función que guarda el valor de lo que se escribe en el input
+const searcher = (e) => {
+  setSearch(e.target.value)
+  console.log(e.target.value)
+}    
+
+
+//Filtro clickeable por categoria
+  const filterResult=(catItem) => {
+    const result= eleccion.filter((curData) => {
+      return curData.categoria === catItem;
+    });
+   setEleccion(result);
+  
+  }
+
+
+//metodo de filtrado por input con nombre de producto
+let resultados = []
+if(!search){
+  resultados = eleccion
+}else{
+ resultados =  eleccion.filter( (dato) => 
+  dato.producto.toLowerCase().includes(search.toLocaleLowerCase()))
+}
+
+
+useEffect( () => {
+  showData();
+}, [])
 
 
     return (
@@ -90,38 +126,48 @@ const Catalogo = () => {
             <Title>Encuentra los productos que buscas</Title>
             <Container>
                 <Grid>
-                    <Button type="button" onClick={() => setEleccion("lacteos")}>
+                    <Button type="button"  onClick={() => filterResult("Lacteos")}>
                         <GiMilkCarton size={50} color={"white"} />
                         <Span>Lacteos</Span>
                     </Button>
 
-                    <Button type="button" onClick={() => setEleccion("carnes")}>
+                    <Button type="button"  onClick={() => filterResult("Carnes")}>
                         <GiMeat size={50} color={"white"} />
                         <Span>Carnes</Span>
                     </Button>
 
-                    <Button type="button">
+                    <Button type="button"  onClick={() => filterResult("Frutas/Verduras")}>
                         <GiFruitBowl size={50} color={"white"} />
                         <Span>Frutas/Verduras</Span>
                     </Button>
 
-                    <Button type="button">
+                    <Button type="button"  onClick={() => filterResult("Bolsones")}>
                         <GiPaperBagOpen size={50} color={"white"} />
                         <Span>Bolsones</Span>
                     </Button>
 
-                    <Button type="button">
+                    <Button type="button"  onClick={() => filterResult("Dulces artesanales")}>
                         <GiWrappedSweet size={50} color={"white"} />
                         <Span>Dulces artesanales</Span>
                     </Button>
                 </Grid>
             </Container>
 
-            <Input onChange={e => setEleccion(e.target.value)} placeholder='Buscar Productos'></Input>
+            <Input  onChange={searcher} placeholder='Buscar Productos'></Input>
       
-      {
-        
-      }
+      
+        <table>
+          <Grid>
+            {
+              resultados.map( (producto) => (
+                <tr key={producto.id}>
+                  <Item>{producto.producto}</Item>
+                </tr>
+              ))
+            }
+          </Grid>
+        </table>
+      
 
         </Container>
 
